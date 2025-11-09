@@ -11,7 +11,7 @@ It allows users to receive curated news based on their preferences and leverages
 - 🗂 Categorized news (sports, politics, technology, etc.)
 - 🔍 AI-powered news filtering with Cohere embeddings
 - ⚡ FastAPI backend with modular structure (schemas, models, database, routes)
-- 🗄 Sqlite database integration
+- 🗄 Postgresql database integration
 
 
 ---
@@ -24,7 +24,7 @@ It allows users to receive curated news based on their preferences and leverages
  Initialize Locally:
    ```
     bash
-    git clone https://github.com/princelab0/Hamro_News.git/
+    git clone https://github.com/aadish81/Hamro-News.git
     
     cd Hamro_News
 
@@ -34,7 +34,7 @@ It allows users to receive curated news based on their preferences and leverages
     venv\Scripts\activate      # On Windows
     pip install -r requirements.txt
 
-    Python main.py
+    uvicorn main:app --reload
 ```
 
 
