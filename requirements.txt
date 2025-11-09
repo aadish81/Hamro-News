@@ -1,0 +1,11 @@
+fastapi 
+uvicorn
+sqlalchemy
+dotenv
+sqlalchemy[asyncio]
+apscheduler
+openai
+numpy
+httpx
+cohere
+asyncpg
