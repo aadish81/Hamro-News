@@ -58,7 +58,7 @@
 #   print(f"Generated image URL: {resp.data[0].url}")
   # except Exception as e:
   #   print(f"Error occured : {e}")
-asyncio.run(generate())
+# asyncio.run(generate())
     
 # async def describe():
 #   resp = await client.chat.completions.create(

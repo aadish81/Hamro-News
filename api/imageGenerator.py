@@ -367,16 +367,16 @@ class FirecrawlSearch:
     
     
 
-async def main():
-    print("🚀 Starting Firecrawl Search Demo")
-    async with FirecrawlSearch() as searcher:
-        query = "Japan PM seeks meeting with North Korean leader over abductees"
-        data = await searcher.search_for_sites(query)
-        # img = await searcher.select_image(query)
+# async def main():
+#     print("🚀 Starting Firecrawl Search Demo")
+#     async with FirecrawlSearch() as searcher:
+#         query = "Japan PM seeks meeting with North Korean leader over abductees"
+#         data = await searcher.search_for_sites(query)
+#         # img = await searcher.select_image(query)
         
-        print(f"\n📋 FINAL RESULT: {data}")
+#         print(f"\n📋 FINAL RESULT: {data}")
         
         
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())
