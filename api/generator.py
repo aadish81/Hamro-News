@@ -6,7 +6,7 @@ import asyncio
 from dotenv import load_dotenv
 import json 
 import re
-from embedding import logger
+from api.embedding import logger
 import os
 
 load_dotenv()

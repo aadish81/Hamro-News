@@ -9,3 +9,4 @@ numpy
 httpx
 cohere
 asyncpg
+aiohttp

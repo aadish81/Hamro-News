@@ -2,7 +2,7 @@ from sqlalchemy import Column,String,ForeignKey,Integer,DateTime,Text,func
 import uuid 
 from sqlalchemy.dialects.sqlite import JSON
 from sqlalchemy.orm import relationship
-from Database.database import Base
+from api.Database.database import Base
 
 
 

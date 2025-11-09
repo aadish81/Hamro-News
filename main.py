@@ -3,13 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from sqlalchemy import delete
 import datetime
-from scheduler import scheduler
-from Database.database import Base,engine,get_db
-from Models.models import NewsCart, NewsInDetail,NewsInNepali
+from api.scheduler import scheduler
+from api.Database.database import Base,engine,get_db
+from api.Models.models import NewsCart, NewsInDetail,NewsInNepali
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select 
-from schema import NewsCartCreate,NewsCartRead,DetailCreate,DetailRead,CreateNewsInNepali
+from api.schema import NewsCartCreate,NewsCartRead,DetailCreate,DetailRead,CreateNewsInNepali
 
 from sqlalchemy.orm import  selectinload
 import json

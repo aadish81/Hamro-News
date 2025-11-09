@@ -4,7 +4,7 @@ import json
 from openai import AsyncOpenAI
 import asyncio
 from dotenv import load_dotenv
-from embedding import logger
+from api.embedding import logger
 
 load_dotenv()
 

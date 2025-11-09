@@ -1,9 +1,9 @@
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime, timedelta,timezone
 from sqlalchemy import delete
-from Database.database import AsyncSessionLocal
-from Models.models import NewsCart
-from pipeline1 import NewsFetcher
+from api.Database.database import AsyncSessionLocal
+from api.Models.models import NewsCart
+from api.pipeline1 import NewsFetcher
 
 
 scheduler = AsyncIOScheduler()

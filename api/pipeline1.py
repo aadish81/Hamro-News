@@ -6,10 +6,10 @@ from typing import List, Dict, Any, Optional
 
 load_dotenv()
 
-from filter_newest_news import filter_last_24_hours, get_latest_timestamp
-from generator import failed_nepali_news, UseOpenai, PostToDB
-from embedding import add_news_to_clusters, clusters, logger
-from imageGenerator import FirecrawlSearch
+from api.filter_newest_news import filter_last_24_hours, get_latest_timestamp
+from api.generator import failed_nepali_news, UseOpenai, PostToDB
+from api.embedding import add_news_to_clusters, clusters, logger
+from api.imageGenerator import FirecrawlSearch
 
 class NewsProcessor:
     """Main class to process news from multiple sources."""
