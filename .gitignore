@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+#Docker
+Dockerfile
+
+# Virtual environment
+venv/
+.env
+.venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local databases and logs
+*.db
+*.sqlite3
+*.log
+.vercel
+         
