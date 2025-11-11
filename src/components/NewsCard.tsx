@@ -1,53 +1,68 @@
-import React from "react";
-import type { NewsCartRead } from "../types";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-
-dayjs.extend(relativeTime);
+import React from 'react';
+import type { NewsCart, Language } from '../types/news';
+import './NewsCard.css';
 
 interface NewsCardProps {
-  news: NewsCartRead;
+  news: NewsCart;
+  onClick: (news: NewsCart) => void;
+  language: Language;
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
-  const timeAgo = dayjs(news.time_of_release).fromNow();
+const NewsCard: React.FC<NewsCardProps> = ({ news, onClick, language }) => {
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
+  const formatSource = (sources: string[]): string => {
+    if (!sources || sources.length === 0) return 'Unknown Source';
+    return sources.join(', ');
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = '/placeholder-news.jpg';
+  };
 
   return (
-    <div style={styles.card}>
-      <img src={news.cover_image} alt={news.title} style={styles.image} />
-      <div style={styles.content}>
-        <h3 style={styles.title}>{news.title}</h3>
-        <p style={styles.category}>Category: {news.category}</p>
-        {news.source && news.source.length > 0 && (
-          <p style={styles.source}>Source: {news.source.join(", ")}</p>
-        )}
-        <p style={styles.time}>Posted {timeAgo}</p>
+    <div className="news-card" onClick={() => onClick(news)}>
+      <div className="news-image-container">
+        <img 
+          src={news.cover_image} 
+          alt={news.title}
+          className="news-image"
+          onError={handleImageError}
+        />
+        <div className="news-category">{news.category}</div>
+      </div>
+      
+      <div className="news-content">
+        <h3 className="news-title">{news.title}</h3>
+        
+        <div className="news-meta">
+          <div className="news-sources">
+            <span className="source-icon">📰</span>
+            {formatSource(news.source)}
+          </div>
+          <div className="news-date">
+            <span className="date-icon">🕒</span>
+            {formatDate(news.time_of_release)}
+          </div>
+        </div>
+        
+        <div className="news-language">
+          <span className={`language-badge ${language}`}>
+            {language === 'nepali' ? 'नेपाली' : 'English'}
+          </span>
+        </div>
       </div>
     </div>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  card: {
-    border: "1px solid #ddd",
-    borderRadius: "10px",
-    overflow: "hidden",
-    marginBottom: "20px",
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "400px",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-  },
-  image: {
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-  },
-  content: { padding: "10px" },
-  title: { fontSize: "1.2em", marginBottom: "5px" },
-  category: { fontSize: "0.9em", color: "#555" },
-  source: { fontSize: "0.85em", color: "#777" },
-  time: { fontSize: "0.8em", color: "#999" },
 };
 
 export default NewsCard;

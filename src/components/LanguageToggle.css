@@ -1,0 +1,73 @@
+/* src/components/LanguageToggle.css */
+.language-toggle {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.toggle-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #333;
+  text-align: center;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  border: 2px solid #e1e1e1;
+  border-radius: 8px;
+  background: white;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  justify-content: center;
+}
+
+.toggle-btn:hover:not(:disabled) {
+  border-color: #007bff;
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+.toggle-btn.active {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+}
+
+.toggle-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.flag {
+  font-size: 1.2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .toggle-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .toggle-btn {
+    min-width: auto;
+    width: 100%;
+  }
+}
