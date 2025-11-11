@@ -8,14 +8,28 @@ interface NewsGridProps {
   onNewsClick: (news: NewsCart) => void;
   language: Language;
   isLoading: boolean;
+//   currentSort: SortOption;
 }
 
 const NewsGrid: React.FC<NewsGridProps> = ({ 
   news, 
   onNewsClick, 
   language, 
-  isLoading 
+  isLoading,
+
 }) => {
+  // Sort news based on current sort option
+  const sortedNews = React.useMemo(() => {
+    if (!news || news.length === 0) return [];
+    
+    return [...news].sort((a, b) => {
+      const dateA = new Date(a.time_of_release).getTime();
+      const dateB = new Date(b.time_of_release).getTime();
+      
+      return  dateA - dateB
+    });
+  }, [news]);
+
   if (isLoading) {
     return (
       <div className="news-grid-loading">
@@ -37,7 +51,7 @@ const NewsGrid: React.FC<NewsGridProps> = ({
 
   return (
     <div className="news-grid">
-      {news.map((newsItem) => (
+      {sortedNews.map((newsItem) => (
         <NewsCard
           key={newsItem.id}
           news={newsItem}

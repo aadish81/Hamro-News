@@ -1,10 +1,10 @@
 export interface NewsCart {
   id: string;
   title: string;
-  cover_image: string; // HttpUrl becomes string in frontend
+  cover_image: string;
   source: string[];
   category: string;
-  time_of_release: string; // datetime becomes string in frontend
+  time_of_release: string;
 }
 
 export interface NewsDetail {
@@ -19,3 +19,5 @@ export interface NewsDetailResponse {
 }
 
 export type Language = 'english' | 'nepali';
+
+export type SortOption = 'latest' | 'oldest';

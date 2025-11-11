@@ -1,11 +1,12 @@
 import  { useState, useEffect } from 'react';
 import NewsGrid from './components/NewsGrid';
 import NewsDetail from './components/NewsDetail';
-import LanguageToggle from './components/LanguageToggle';
+// import NewsControls from './components/NewsControls';
 import LoadingSpinner from './components/LoadingSpinner';
 import { newsAPI } from './services/api';
-import type { NewsCart, NewsDetailResponse, Language } from './types/news';
+import type { NewsCart, NewsDetailResponse, Language} from './types/news';
 import './App.css';
+import LanguageToggle from './components/LanguageToggle';
 
 function App() {
   const [language, setLanguage] = useState<Language>('english');
@@ -66,6 +67,8 @@ function App() {
     setNewsDetail(null);
   };
 
+
+
   // Close news detail modal
   const handleCloseDetail = (): void => {
     setSelectedNews(null);
@@ -80,7 +83,7 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>📰 News Portal</h1>
+        <h1>News Portal</h1>
         <p>Stay updated with the latest news in your preferred language</p>
       </header>
 
@@ -88,6 +91,8 @@ function App() {
         <LanguageToggle
           currentLanguage={language}
           onLanguageChange={handleLanguageChange}
+
+
           isLoading={isLoading}
         />
 
@@ -108,6 +113,7 @@ function App() {
             onNewsClick={fetchNewsDetail}
             language={language}
             isLoading={isLoading}
+
           />
         )}
 
