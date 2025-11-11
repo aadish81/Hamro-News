@@ -30,7 +30,8 @@ A modern, responsive React TypeScript frontend for Naya-Khabar in both English a
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repository-url>
+
+   git clone -b Frontend https://github.com/aadish81/Hamro-News.git
    cd news-portal-frontend
    npm install
    npm start
